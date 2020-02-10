@@ -36,9 +36,14 @@ module.exports.checkConnectivity = async function(parameters) {
       });
 
       zbClientInstance.topology().then(async function(response) {
-        resolve(true);
+        resolve({
+          isSuccessful: true
+        });
       }).catch(async function(err) {
-        resolve(false);
+        resolve({
+          isSuccessful: false,
+          reason: err.details
+        });
       });
     });
   } else if (parameters.type === 'oauth') {
@@ -65,9 +70,14 @@ module.exports.checkConnectivity = async function(parameters) {
       });
 
       zbClientInstance.topology().then(async function(response) {
-        resolve(true);
+        resolve({
+          isSuccessful: true
+        });
       }).catch(async function(err) {
-        resolve(false);
+        resolve({
+          isSuccessful: false,
+          reason: err.details
+        });
       });
     });
   } else if (parameters.type === 'camundaCloud') {
@@ -83,9 +93,14 @@ module.exports.checkConnectivity = async function(parameters) {
       });
 
       zbClientInstance.topology().then(async function(response) {
-        resolve(true);
+        resolve({
+          isSuccessful: true
+        });
       }).catch(async function(err) {
-        resolve(false);
+        resolve({
+          isSuccessful: false,
+          reason: err.details
+        });
       });
     });
   }
